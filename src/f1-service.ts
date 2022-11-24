@@ -5,7 +5,7 @@ import store from './model/model'
 const year = "2022"
 const url = `https://ergast.com/api/f1/${year}/results.json?limit=1000`
 
-class UserService {
+class F1RaceService {
 
     async fetchUsers() {
         const response = await fetch(url)
@@ -19,5 +19,5 @@ class UserService {
     }
 }
 
-const userService = new UserService();
-export default userService;
+const f1RaceService = new F1RaceService();
+export default f1RaceService;
