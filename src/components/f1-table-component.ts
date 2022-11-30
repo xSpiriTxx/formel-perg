@@ -17,7 +17,7 @@ const tableTemplate = html`
             <th>Racename</th>
             <th>Circuitename</th>
         </thead>
-        <tbody>
+        <tbody style="cursor: pointer">
         </tbody>
     </table>
 `
