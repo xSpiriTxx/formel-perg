@@ -20,6 +20,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "immer": "^9.0.16",
     "lit-html": "^2.4.0",
     "rxjs": "^7.5.7"

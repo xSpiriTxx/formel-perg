@@ -3,11 +3,16 @@ import { FormulaData, Race } from './model/formula-data'
 import store from './model/model'
 
 const year = "2022"
+const round = "1"
 const url = `https://ergast.com/api/f1/${year}/results.json?limit=1000`
+
+const yearUrl = `https://ergast.com/api/f1/${year}.json?limit=1000`
+
+const raceUrl = `https://ergast.com/api/f1/${year}/${round}/results.json?limit=1000`
 
 class F1RaceService {
 
-    async fetchUsers() {
+    async fetchRaces() {
         const response = await fetch(url)
         let data: FormulaData = await response.json()
         let races: Race[] = data.MRData.RaceTable.Races

@@ -7,19 +7,26 @@ import store from '../model/model';
 
 const tableTemplate = html`
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>table{font-family: 'Arial'}</style>
-    <table class="w3-table w3-striped w3-bordered">
-        <thead>
-            <th>Season</th>
-            <th>Round</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Racename</th>
-            <th>Circuitename</th>
-        </thead>
-        <tbody style="cursor: pointer">
-        </tbody>
-    </table>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+        *{font-family: 'Arial'}
+        .conatiner{width:80%; margin:auto}
+    </style>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <th>Season</th>
+                <th>Round</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Racename</th>
+                <th>Circuitename</th>
+            </thead>
+            <tbody style="cursor: pointer">
+            </tbody>
+        </table>
+    </div>
 `
 
 const rowTemplate = (race: Race) => html`
@@ -44,7 +51,7 @@ export class F1TableComponent extends HTMLElement {
         store.subscribe(model => {
             this.render(model.races)
         })
-        f1RaceService.fetchUsers()
+        f1RaceService.fetchRaces()
     }
 
 

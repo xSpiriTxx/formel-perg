@@ -4,7 +4,7 @@ import "./f1-detail-component"
 
 const appComponentTemplate = html`
     <f1-table-component></f1-table-component>
-    <f1-component style="display:none"></f1-component>
+    <f1-component style="display:none" season="2022" round="1"></f1-component>
 `
 
 
