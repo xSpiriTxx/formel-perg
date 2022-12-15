@@ -12,8 +12,8 @@ const raceUrl = `https://ergast.com/api/f1/${year}/${round}/results.json?limit=1
 
 class F1RaceService {
 
-    async fetchRaces() {
-        const response = await fetch(url)
+    async fetchRaces(jahr: string) {
+        const response = await fetch(`https://ergast.com/api/f1/${jahr}/results.json?limit=1000`)
         let data: FormulaData = await response.json()
         let races: Race[] = data.MRData.RaceTable.Races
 

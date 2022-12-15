@@ -1,5 +1,4 @@
 import { html, render } from 'lit-html'
-import userService from '../f1-service';
 
 import store from '../model/model';
 import { Race } from "../model/formula-data";

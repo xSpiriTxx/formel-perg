@@ -51,7 +51,7 @@ export class F1TableComponent extends HTMLElement {
         store.subscribe(model => {
             this.render(model.races)
         })
-        f1RaceService.fetchRaces()
+        f1RaceService.fetchRaces("2022")
     }
 
 
@@ -60,6 +60,7 @@ export class F1TableComponent extends HTMLElement {
         render(tableTemplate, this.root)
 
         const body = this.root.querySelector("tbody")
+        body.innerHTML = ""
 
         races.forEach(race => {
             const row = body.insertRow()
@@ -68,7 +69,6 @@ export class F1TableComponent extends HTMLElement {
                 this.dispatchEvent(event)
             }
             render(rowTemplate(race), row)
-
         })
     }
 }
