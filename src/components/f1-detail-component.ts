@@ -45,10 +45,7 @@ const f1ComponentTemplate = (race: Race) => html`
             </tbody>
         </table>
     </div>
-    <!--<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpf76Zv5s2n50z-_uw0N875P_R6rxyb1g&callback=initMap"
-      defer
-    ></script>-->`
+    `
 
 
 const rowTemplate = (result: Result) => html`
