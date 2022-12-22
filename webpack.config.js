@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -22,7 +23,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new HtmlWebpackPlugin({ title: "Formel Perg" })
+        new HtmlWebpackPlugin({ title: "Formel Perg" }),
+        new CopyWebpackPlugin({ patterns: [ { from: 'src/assets', to: 'assets' } ]})
     ],
     devServer: {
         static: {

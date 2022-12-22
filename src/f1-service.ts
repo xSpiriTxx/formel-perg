@@ -4,16 +4,15 @@ import store from './model/model'
 
 const year = "2022"
 const round = "1"
+
 const url = `https://ergast.com/api/f1/${year}/results.json?limit=1000`
-
 const yearUrl = `https://ergast.com/api/f1/${year}.json?limit=1000`
-
 const raceUrl = `https://ergast.com/api/f1/${year}/${round}/results.json?limit=1000`
 
 class F1RaceService {
 
     async fetchRaces(jahr: string) {
-        const response = await fetch(`https://ergast.com/api/f1/${jahr}/results.json?limit=1000`)
+        const response = await fetch(`http://localhost:8000/api/f1/${jahr}/results.json?limit=1000`)
         let data: FormulaData = await response.json()
         let races: Race[] = data.MRData.RaceTable.Races
 

@@ -31,6 +31,7 @@ class AppComponent extends HTMLElement {
             f1Component.setAttribute("round", race.round)
             f1TableComponent.style.display = "none"
             f1Component.style.display = "block"
+            f1Component.dispatchEvent(new CustomEvent("detail"))
         })
         f1Component.addEventListener("back", (e: CustomEvent) => {
             f1TableComponent.style.display = "block"
