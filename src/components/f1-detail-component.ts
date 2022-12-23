@@ -19,6 +19,9 @@ const f1ComponentTemplate = (race: Race) => html`
             width: 80vw;
             height: 600px;
         }
+        img{
+            height: 30px
+        }
         map-component { height: 200px; width: 500px }
     </style>
 
@@ -40,23 +43,21 @@ const f1ComponentTemplate = (race: Race) => html`
                 <th>Constructor</th>
                 <th>Time</th>
                 <th>Points gained</th>
+                <th>Car</th>
             </thead>
             <tbody>
             </tbody>
         </table>
-    </div>
-    <!--<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpf76Zv5s2n50z-_uw0N875P_R6rxyb1g&callback=initMap"
-      defer
-    ></script>-->`
+    </div>`
 
 
 const rowTemplate = (result: Result) => html`
     <td>${result.positionText}</td>
     <td>${result.Driver.givenName} ${result.Driver.familyName} (${result.number})</td>
-    <td>${result.Constructor.name}</td>
+    <td><img src="/assets/FormularOneTeamLogos/${result.Constructor.name.toLocaleLowerCase()}.png"/> ${result.Constructor.name}</td>
     <td>${result.Time != undefined ? result.Time.time : result.status}</td>
-    <td>${result.points}</td>`
+    <td>${result.points != "0" ? "+" : ""}${result.points}</td>
+    <td><img src="/assets/FormularOneCars/${result.Constructor.name.toLocaleLowerCase()}.png"/></td>`
 
 class F1DetailComponent extends HTMLElement {
 
@@ -108,6 +109,7 @@ class F1DetailComponent extends HTMLElement {
                 })
                 this.addEventListener("detail", () => {
                     this.root.getElementById("map").dispatchEvent(new CustomEvent("resize-map"))
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 })
             })
     }
