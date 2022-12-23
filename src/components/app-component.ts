@@ -37,6 +37,10 @@ class AppComponent extends HTMLElement {
             f1TableComponent.style.display = "block"
             f1Component.style.display = "none"
         })
+        this.addEventListener("year-changed", () => {
+            f1TableComponent.style.display = "block"
+            f1Component.style.display = "none"
+        })
     }
 }
 

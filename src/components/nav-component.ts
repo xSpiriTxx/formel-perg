@@ -14,12 +14,6 @@ const navTemplate = html`
             <select id="yearselect" class="custom-select" style="width: 150px; margin-left: auto">
                 <option>2022</option>
                 <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
             </select>
         </div>
     </nav>`
@@ -46,6 +40,7 @@ class NavComponent extends HTMLElement {
             console.log(eventObj.value)
             f1RaceService.fetchRaces(eventObj.value)
             console.log(store.value)
+            document.querySelector("app-component").dispatchEvent(new CustomEvent("year-changed"))
         });
     }
 }

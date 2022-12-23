@@ -22,6 +22,7 @@ const tableTemplate = html`
                 <th>Time</th>
                 <th>Racename</th>
                 <th>Circuitename</th>
+                <th>Country</th>
             </thead>
             <tbody style="cursor: pointer">
             </tbody>
@@ -36,6 +37,7 @@ const rowTemplate = (race: Race) => html`
     <td>${race.time}</td>
     <td>${race.raceName}</td>
     <td>${race.Circuit.circuitName}</td>
+    <td>${race.Circuit.Location.country}</td>
 `
 
 export class F1TableComponent extends HTMLElement {
