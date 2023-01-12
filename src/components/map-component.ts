@@ -78,12 +78,6 @@ class MapComponent extends HTMLElement {
 
         this.map = L.map(mapEl)
 
-        /*this.map.on("load", function () {
-            setTimeout(() => {
-                this.map.invalidateSize();
-            }, 1);
-        });*/
-
         this.addEventListener("resize-map", () => {
             this.map.invalidateSize();
         })
@@ -106,8 +100,6 @@ class MapComponent extends HTMLElement {
         L.control.layers(Basemaps, Overlaymaps).addTo(this.map);
 
         this.mapInit = true;
-
-        //console.log("map changed", this.map)
 
         this.map.invalidateSize()
     }

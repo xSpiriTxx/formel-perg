@@ -20,13 +20,14 @@ class AppComponent extends HTMLElement {
     connectedCallback() {
         this.render()
     }
+
     private render() {
         render(appComponentTemplate, this.root)
         const f1TableComponent: HTMLElement = this.root.querySelector("f1-table-component")
         const f1Component: HTMLElement = this.root.querySelector("f1-component")
         f1TableComponent.addEventListener("race-selected", (e: CustomEvent) => {
             const race = e.detail.race
-            //console.log("race-selected", race)
+
             f1Component.setAttribute("season", race.season)
             f1Component.setAttribute("round", race.round)
             f1TableComponent.style.display = "none"
