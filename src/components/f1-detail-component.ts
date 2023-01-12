@@ -1,8 +1,6 @@
 import { html, render } from 'lit-html'
 import "./map-component"
 
-import * as L from 'leaflet'
-
 import store from '../model/model';
 import { Race, Result } from "../model/formula-data";
 import { filter, mergeMap } from 'rxjs';
@@ -29,7 +27,7 @@ const f1ComponentTemplate = (race: Race) => html`
         <button id="backbutton" class="btn btn-primary">Back</button>
         <div style="display:flex">
             <div>
-                <h2>${race.Circuit.Location.country} : ${race.Circuit.circuitName} (${race.season} | ${race.round})</h2>
+                <h2>${race.Circuit.Location.country} : <a href="${race.Circuit.url}" target="_blank">${race.Circuit.circuitName}</a> (${race.season} | ${race.round})</h2>
                 <h3>${race.date} ${race.time}</h3>
             </div>
         </div>
@@ -53,8 +51,8 @@ const f1ComponentTemplate = (race: Race) => html`
 
 const rowTemplate = (result: Result) => html`
     <td>${result.positionText}</td>
-    <td>${result.Driver.givenName} ${result.Driver.familyName} (${result.number})</td>
-    <td><img src="/assets/FormularOneTeamLogos/${result.Constructor.name.toLocaleLowerCase()}.png"/> ${result.Constructor.name}</td>
+    <td><a href="${result.Driver.url}" target="_blank">${result.Driver.givenName} ${result.Driver.familyName} (${result.number})</a></td>
+    <td><img src="/assets/FormularOneTeamLogos/${result.Constructor.name.toLocaleLowerCase()}.png"/> <a href="${result.Constructor.url}" target="_blank">${result.Constructor.name}</a></td>
     <td>${result.Time != undefined ? result.Time.time : result.status}</td>
     <td>${result.points != "0" ? "+" : ""}${result.points}</td>
     <td><img src="/assets/FormularOneCars/${result.Constructor.name.toLocaleLowerCase()}.png"/></td>`

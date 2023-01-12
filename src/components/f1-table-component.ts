@@ -49,7 +49,7 @@ export class F1TableComponent extends HTMLElement {
         this.root = this.attachShadow({ mode: "closed" })
     }
 
-    async connectedCallback() {
+    connectedCallback() {
         store.subscribe(model => {
             this.render(model.races)
         })

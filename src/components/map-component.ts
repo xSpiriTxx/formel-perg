@@ -82,7 +82,7 @@ class MapComponent extends HTMLElement {
             this.map.invalidateSize();
         })
 
-        console.log(this.map.getSize())
+        //console.log(this.map.getSize())
         this.map.invalidateSize()
 
         this.map.setView([this.lat, this.long], 6)
@@ -102,12 +102,6 @@ class MapComponent extends HTMLElement {
         this.mapInit = true;
 
         this.map.invalidateSize()
-    }
-
-    onMapReady(map: L.Map) {
-        setTimeout(() => {
-            map.invalidateSize();
-        }, 0);
     }
 }
 
